@@ -1,5 +1,4 @@
 import EventItem from "./event-item";
-import AddressIcon from "@/components/icons/address-icon";
 import classes from "./event-list.module.css";
 
 function EventList(props) {
