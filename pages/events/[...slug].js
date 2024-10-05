@@ -24,8 +24,10 @@ function FilteredEventsPage() {
   if (
     isNaN(numYear) ||
     isNaN(numMonth) ||
-    2021 > numYear > 2030 ||
-    1 > numMonth > 12
+    2021 > numYear ||
+    numYear > 2030 ||
+    1 > numMonth ||
+    numMonth > 12
   ) {
     return (
       <Fragment>
