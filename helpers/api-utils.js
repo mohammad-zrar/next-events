@@ -21,3 +21,11 @@ export async function getFeaturedEvents() {
 
   return allEvents.filter((event) => event.isFeatured);
 }
+
+export async function getEventById(id) {
+  const allEventts = await getAllEvents();
+
+  const event = allEventts.find((event) => event.id === id);
+
+  return event;
+}

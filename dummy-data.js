@@ -1,6 +1,6 @@
 const DUMMY_EVENTS = [
   {
-    id: "e1",
+    id: "0",
     title: "Programming for everyone",
     description:
       "Everyone can learn to code! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with programming as well.",
@@ -10,7 +10,7 @@ const DUMMY_EVENTS = [
     isFeatured: false,
   },
   {
-    id: "e2",
+    id: "1",
     title: "Networking for introverts",
     description:
       "We know: Networking is no fun if you are an introvert person. That's why we came up with this event - it'll be so much easier. Promised!",
@@ -20,7 +20,7 @@ const DUMMY_EVENTS = [
     isFeatured: true,
   },
   {
-    id: "e3",
+    id: "2",
     title: "Networking for extroverts",
     description:
       "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
@@ -30,7 +30,7 @@ const DUMMY_EVENTS = [
     isFeatured: true,
   },
   {
-    id: "e4",
+    id: "3",
     title: "Advanced JavaScript Workshop",
     description:
       "Take your JavaScript skills to the next level in this hands-on workshop. We will dive deep into advanced topics like closures, asynchronous programming, and performance optimization.",
@@ -40,7 +40,7 @@ const DUMMY_EVENTS = [
     isFeatured: false,
   },
   {
-    id: "e5",
+    id: "4",
     title: "React for Beginners",
     description:
       "If you are new to React or want a refresh, this event is perfect for you. We will cover the core concepts of React, including components, props, and state management.",
@@ -50,7 +50,7 @@ const DUMMY_EVENTS = [
     isFeatured: true,
   },
   {
-    id: "e6",
+    id: "5",
     title: "Mastering CSS Flexbox & Grid",
     description:
       "CSS layout techniques can be tricky. This event will focus on mastering Flexbox and Grid, giving you the tools to build responsive and efficient layouts.",
@@ -60,7 +60,7 @@ const DUMMY_EVENTS = [
     isFeatured: false,
   },
   {
-    id: "e7",
+    id: "6",
     title: "Python Data Science Bootcamp",
     description:
       "A comprehensive event for anyone interested in Data Science. Learn how to use Python for data analysis, visualization, and machine learning.",
@@ -70,7 +70,7 @@ const DUMMY_EVENTS = [
     isFeatured: true,
   },
   {
-    id: "e8",
+    id: "7",
     title: "Full-Stack Web Development",
     description:
       "In this event, we will cover both frontend and backend development using modern technologies like React, Node.js, and MongoDB.",
