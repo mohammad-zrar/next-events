@@ -15,35 +15,29 @@ function NewComment(props) {
     const enteredName = nameInputRef.current.value;
     const enteredComment = commentInputRef.current.value;
 
-    if (
-      !enteredEmail ||
-      enteredEmail.trim() === '' ||
-      !enteredEmail.includes('@') ||
-      !enteredName ||
-      enteredName.trim() === '' ||
-      !enteredComment ||
-      enteredComment.trim() === ''
-    ) {
-      setIsInvalid(true);
-      return;
-    }
+    // if (
+    //   !enteredEmail ||
+    //   enteredEmail.trim() === '' ||
+    //   !enteredEmail.includes('@') ||
+    //   !enteredName ||
+    //   enteredName.trim() === '' ||
+    //   !enteredComment ||
+    //   enteredComment.trim() === ''
+    // ) {
+    //   setIsInvalid(true);
+    //   return;
+    // }
 
     props.onAddComment({
       email: enteredEmail,
       name: enteredName,
       text: enteredComment,
     });
-
-    fetch('api/comments/2', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'applications/json'
-      }
-    })
+   
   }
 
   return (
-    <form onSubmit={sendCommentHandler} className={classes.form} >
+    <form noValidate onSubmit={sendCommentHandler} className={classes.form} >
       <div className={classes.row}>
         <div className={classes.control}>
           <label htmlFor='email'>Your email</label>

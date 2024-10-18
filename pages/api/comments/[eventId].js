@@ -1,12 +1,12 @@
-function hanlder(res, req) {
-    const evenId = req.query.eventId;;
+function hanlder(req, res) {
+    const evenId = req.query.eventId;
 
     if(req.method === 'POST') {
         const {email, name, text } = req.body;
 
         if(!email.includes('@') || !name || !text || text.trim() === '') {
             res.status(422).json({message: 'Invalid input.'})
-            return;r  
+            return;
         }
 
         const newComment = {
