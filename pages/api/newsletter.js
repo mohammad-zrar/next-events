@@ -1,14 +1,26 @@
-function hanlder(req, res) {
-    if(req.method === 'POST') {
-        const userEmail = req.body.email
+import { connectToDatabase } from "@/lib/mongodb"
 
-        if(!userEmail || !userEmail.includes('@')) {
-            res.status(422).json({message: 'Invalid email address.'})
-            return 
+async function hanlder(req, res) {
+    if (req.method === 'POST') {
+        const userEmail = req.body.email
+      
+
+        if (!userEmail || !userEmail.includes('@')) {
+            res.status(422).json({ message: 'Invalid email address.' })
+            return
         }
 
-        console.log( userEmail)
-        res.status(201).json({message: 'Signed up!'})
+        try {
+            const {db} = await connectToDatabase();
+            
+            await db.collection('emails').insertOne({email: userEmail});
+
+      res.status(201).json({ message: 'Data inserted' })
+        } catch (err) {
+            console.error(err)
+
+            res.status(501).json({ message: 'Not Implemented' })
+        }
     }
 
 }

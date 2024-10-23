@@ -1,5 +1,8 @@
-function hanlder(req, res) {
+import { connectToDatabase } from "@/lib/mongodb";
+
+async function hanlder(req, res) {
     const evenId = req.query.eventId;
+   
 
     if(req.method === 'POST') {
         const {email, name, text } = req.body;
@@ -10,11 +13,19 @@ function hanlder(req, res) {
         }
 
         const newComment = {
-            id: new Date().toISOString(),
             email,
             name,
-            text
+            text,
+            evenId
         }
+
+         try { 
+    const {db} = await connectToDatabase();
+    await db.collection('comments').insertOne(newComment);
+    res.status(201).json({message: 'Comment added successfully'})
+    } catch(err) {
+        res.status(501).json({message: "Not implemented"})
+    }
         console.log('New Comment: ', newComment);
         res.status(201).json({message: 'Added comment'})
     }
