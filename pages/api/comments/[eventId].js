@@ -2,7 +2,6 @@ import { connectToDatabase } from "@/lib/mongodb";
 
 async function hanlder(req, res) {
     const evenId = req.query.eventId;
-   
 
     if(req.method === 'POST') {
         const {email, name, text } = req.body;
@@ -31,13 +30,18 @@ async function hanlder(req, res) {
     }
 
     if(req.method === 'GET') {
-        const dummyList = [
-            {id: 'c1', name: 'Max', text: 'A first comment !'},
-            {id: 'c1', name: 'Max', text: 'A Second comment !'},
-            {id: 'c1', name: 'Max', text: 'A Third comment !'},
-        ]
+    
+            try { 
+    const {db} = await connectToDatabase();
+    const documents = await db.collection('comments').find().sort({_id: -1}).toArray();
+    console.log(documents);
+   res.status(200).json({comments: documents});
+    } catch(err) {
+        res.status(501).json({message: "Not implemented"})
+    }
+        
 
-        res.status(200).json({comments: dummyList});
+        
     }
 }
 
